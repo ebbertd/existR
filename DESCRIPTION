@@ -1,0 +1,18 @@
+Package: existR
+Title: Read and write data to Exist.io
+Version: 0.0.1
+Authors@R: 
+    person(given = "Daniel",
+           family = "Ebbert",
+           role = c("cre", "aut"),
+           email = "daniel@ebbert.nrw",
+           comment = c(ORCID = "0000-0003-3666-7205"))
+Description: Read and write data to Exist.io.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
+Imports: 
+    httr,
+    jsonlite
