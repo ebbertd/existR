@@ -1,0 +1,29 @@
+destination: docs
+reference:
+  - title: Authentication
+    desc: >
+      Authenticate a user to Exist.io
+    contents:
+      - exist_auth
+  - title: User information
+    desc: >
+      Get information on the logged in user.
+    contents:
+      - exist_profile
+      - exist_today
+  - title: Attributes
+    desc: >
+      Get data about attributes.
+    contents:
+      - exist_multiple_attributes
+      - exist_specific_attribute
+  - title: "Internal Functions"
+    desc: >
+      Internal functions needed by the package.
+    contents:
+      - starts_with("exist_package")
+  - title: "Print Functions"
+    desc: >
+      Print functions for the api functions.
+    contents:
+      - starts_with("print")

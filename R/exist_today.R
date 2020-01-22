@@ -7,7 +7,7 @@
 #' @return A list containing the information about the current day of the user.
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' exist_today()
 #' }
 exist_today <- function() {
@@ -15,7 +15,7 @@ exist_today <- function() {
   path <- "api/1/users/$self/today/"
 
   # Call wrapper function for query
-  exist_package_query(query_path = path)
+  exist_package_query(path = path)
 }
 
 #' Print result of exist_today()
@@ -29,7 +29,7 @@ exist_today <- function() {
 #' @importFrom utils str
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' resp <- exist_today()
 #'
 #' resp

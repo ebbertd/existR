@@ -9,7 +9,7 @@
 #' @importFrom httr oauth2.0_token
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' Sys.setenv(EXIST_CLIENT_ID = "PASTE_YOUR_ID_HERE")
 #' Sys.setenv(EXIST_CLIENT_SECRET = "PASTE_YOUR_SECRET_HERE")
 #'
@@ -17,14 +17,16 @@
 #' }
 exist_auth <- function() {
   # Remove previously saved auth
-  if (file.exists('.httr-oauth')) {
-    file.remove('.httr-oauth')
+  if (file.exists(".httr-oauth")) {
+    file.remove(".httr-oauth")
   }
 
   # Construct the OAuth endpoint
-  exist_oauth_endpoint <- oauth_endpoint(request = NULL,
-                                         authorize = "https://exist.io/oauth2/authorize",
-                                         access = "https://exist.io/oauth2/access_token")
+  exist_oauth_endpoint <- oauth_endpoint(
+    request = NULL,
+    authorize = "https://exist.io/oauth2/authorize",
+    access = "https://exist.io/oauth2/access_token"
+  )
 
   # Specify the web app information
   exist_webapp <- oauth_app(

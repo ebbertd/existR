@@ -16,7 +16,7 @@ Returns information on the current day of the logged in user.
 This function expects the user to have the oauth token cached.
 }
 \examples{
-\donttest{
+\dontrun{
 exist_today()
 }
 }

@@ -16,7 +16,7 @@ Returns information on the logged in user.
 This function expects the user to have the oauth token cached.
 }
 \examples{
-\donttest{
+\dontrun{
 exist_profile()
 }
 }

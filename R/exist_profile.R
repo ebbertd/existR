@@ -7,7 +7,7 @@
 #' @return A list containing the information about the current user.
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' exist_profile()
 #' }
 exist_profile <- function() {
@@ -15,7 +15,7 @@ exist_profile <- function() {
   path <- "api/1/users/$self/profile/"
 
   # Call wrapper function for query
-  exist_package_query(query_path = path)
+  exist_package_query(path = path)
 }
 
 #' Print result of exist_profile()
@@ -29,7 +29,7 @@ exist_profile <- function() {
 #' @importFrom utils str
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' resp <- exist_profile()
 #'
 #' resp

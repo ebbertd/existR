@@ -18,7 +18,7 @@ A structured print of the return by the exist_today() function.
 Print a structured return of the exist_today() function.
 }
 \examples{
-\donttest{
+\dontrun{
 resp <- exist_today()
 
 resp

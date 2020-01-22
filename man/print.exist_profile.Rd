@@ -18,7 +18,7 @@ A structured print of the return by the exist_profile() function.
 Print a structured return of the exist_profile() function.
 }
 \examples{
-\donttest{
+\dontrun{
 resp <- exist_profile()
 
 resp

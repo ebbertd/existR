@@ -13,7 +13,7 @@ Authenticates the user to Exist.io using OAuth2.0.
 This function stores the users auth token localy. This requires the client id and client secret to be available as environment variables.
 }
 \examples{
-\donttest{
+\dontrun{
 Sys.setenv(EXIST_CLIENT_ID = "PASTE_YOUR_ID_HERE")
 Sys.setenv(EXIST_CLIENT_SECRET = "PASTE_YOUR_SECRET_HERE")
 
