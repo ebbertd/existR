@@ -16,5 +16,5 @@ RoxygenNote: 7.0.2
 Imports: 
     httr,
     jsonlite
-URL: https://github.com/ebbertd/existR
+URL: https://existr.ebbert.nrw
 BugReports: https://github.com/ebbertd/existR/issues
