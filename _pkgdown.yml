@@ -29,6 +29,12 @@ reference:
     contents:
       - exist_current_averages
       - exist_attribute_averages
+  - title: Correlations
+    desc: >
+      Get data about correlations.
+    contents:
+      - exist_attribute_correlations
+      - exist_strongest_correlations
   - title: "Internal Functions"
     desc: >
       Internal functions needed by the package.
