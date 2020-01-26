@@ -17,6 +17,12 @@ reference:
     contents:
       - exist_multiple_attributes
       - exist_specific_attribute
+  - title: Insights
+    desc: >
+      Get data about insights.
+    contents:
+      - exist_all_insights
+      - exist_attribute_insights
   - title: "Internal Functions"
     desc: >
       Internal functions needed by the package.
