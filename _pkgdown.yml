@@ -23,6 +23,12 @@ reference:
     contents:
       - exist_all_insights
       - exist_attribute_insights
+  - title: Averages
+    desc: >
+      Get data about averages.
+    contents:
+      - exist_current_averages
+      - exist_attribute_averages
   - title: "Internal Functions"
     desc: >
       Internal functions needed by the package.
