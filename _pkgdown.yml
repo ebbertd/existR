@@ -35,6 +35,13 @@ reference:
     contents:
       - exist_attribute_correlations
       - exist_strongest_correlations
+  - title: Attribute ownership
+    desc: >
+      Change attribute ownership
+    contents:
+      - exist_acquire_attribute
+      - exist_release_attribute
+      - exist_owned_attributes
   - title: "Internal Functions"
     desc: >
       Internal functions needed by the package.
