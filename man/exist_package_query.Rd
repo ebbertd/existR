@@ -2,7 +2,7 @@
 % Please edit documentation in R/exist_package_query.R
 \name{exist_package_query}
 \alias{exist_package_query}
-\title{Query Exist.io api}
+\title{Query Exist.io API}
 \usage{
 exist_package_query(path = "api/1/users/$self/profile/", query = NULL)
 }

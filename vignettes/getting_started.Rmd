@@ -1,0 +1,60 @@
+---
+title: "Getting started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  eval = FALSE,
+  comment = "#>"
+)
+```
+
+This vignette will walk you through the process of using this R package to update an attribute on Exist.io.
+
+# Setup
+
+The first step is to create an API client on Exist.io. There you have to enter a name for your API and client and provide a redirect URI. To be able to use this R package you have to provide this URI: https://localhost:1410/.
+
+Once you have created your API client you will be provided with a client id and a client secret. Store these as environment variables. You can do so in your .Renviron or set these using the following lines.
+
+```{r enviroment}
+# Set environment variables
+Sys.setenv(EXIST_CLIENT_ID = "PASTE_YOUR_ID_HERE")
+Sys.setenv(EXIST_CLIENT_SECRET = "PASTE_YOUR_SECRET_HERE")
+```
+
+After you set these environment variables you can get started using the package. For this load the package and then authenticate to Exist.io.
+
+```{r auth}
+# Load package
+library(existR)
+
+# Authenticate to Exist.io
+exist_auth()
+```
+
+Calling the exist_auth function will open a browser window. You will have to sign into Exist.io and then grant access to the R package. Afterwards you will be redirect. However, the redirect URL needs to be changed. Exist.io requires a https redirect URL, but the httr package can only provide a local webserver with http. Therefore, to finish the authentication process you have to change the URL in your browser. Just remove the s in https and the URL will work. This will lead to a file being saved in your working directory that contains your OAuth token.
+
+# Attribute ownership
+
+Before an attribute can be updated you have to acquire ownership of this attribute. You can so as shown in the following example.
+
+```{r ownership}
+# Acquire ownership of the 'money_spent' attribute.
+exist_acquire_attribute("money_spent")
+```
+
+# Update an attribute
+
+Once ownership of an attribute has been acquired the attribute can updated. In the following example I will update the money_spent attribute for the 30th of January 2020 to the value of 16.
+
+```{r update}
+# Update the attribute
+exist_update_attribute("money_spent", "2020-01-30", 16)
+```

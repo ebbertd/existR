@@ -1,4 +1,4 @@
-#' Query Exist.io api
+#' Query Exist.io API
 #'
 #' Returns information on the logged in user.
 #'

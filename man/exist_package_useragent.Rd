@@ -7,10 +7,10 @@
 exist_package_useragent()
 }
 \value{
-A character string containing the user agent used in api calls generate with the existR package.
+A character string containing the user agent used in API calls generate with the existR package.
 }
 \description{
-This function returns the user agent used in api calls of the existR package.
+This function returns the user agent used in API calls of the existR package.
 }
 \examples{
 exist_package_useragent()

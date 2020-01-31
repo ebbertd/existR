@@ -1,6 +1,6 @@
 #' Query Exist.io for multiple attributes
 #'
-#' Returns information on multiple atributes.
+#' Returns information on multiple attributes.
 #'
 #' This function expects the user to have the oauth token cached.
 #'

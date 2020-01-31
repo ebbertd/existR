@@ -24,7 +24,7 @@ exist_multiple_attributes(
 A list containing the information about the current day of the user.
 }
 \description{
-Returns information on multiple atributes.
+Returns information on multiple attributes.
 }
 \details{
 This function expects the user to have the oauth token cached.

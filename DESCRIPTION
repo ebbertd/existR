@@ -1,6 +1,6 @@
 Package: existR
 Title: Read and write data to Exist.io
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     person(given = "Daniel",
            family = "Ebbert",
@@ -18,3 +18,7 @@ Imports:
     jsonlite
 URL: https://existr.ebbert.nrw
 BugReports: https://github.com/ebbertd/existR/issues
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

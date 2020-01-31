@@ -1,8 +1,8 @@
 #' existR user agent
 #'
-#' This function returns the user agent used in api calls of the existR package.
+#' This function returns the user agent used in API calls of the existR package.
 #'
-#' @return A character string containing the user agent used in api calls generate with the existR package.
+#' @return A character string containing the user agent used in API calls generate with the existR package.
 #' @importFrom httr user_agent
 #' @export
 #' @examples

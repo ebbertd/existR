@@ -10,7 +10,8 @@ exist_auth()
 Authenticates the user to Exist.io using OAuth2.0.
 }
 \details{
-This function stores the users auth token localy. This requires the client id and client secret to be available as environment variables.
+This function stores the users auth token locally.
+This requires the client id and client secret to be available as environment variables.
 }
 \examples{
 \dontrun{

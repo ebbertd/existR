@@ -2,7 +2,8 @@
 #'
 #' Authenticates the user to Exist.io using OAuth2.0.
 #'
-#' This function stores the users auth token localy. This requires the client id and client secret to be available as environment variables.
+#' This function stores the users auth token locally.
+#' This requires the client id and client secret to be available as environment variables.
 #'
 #' @importFrom httr oauth_endpoint
 #' @importFrom httr oauth_app
@@ -16,6 +17,15 @@
 #' exist_auth()
 #' }
 exist_auth <- function() {
+  # Check if client and secret have been set as environment variables
+  if (Sys.getenv("EXIST_CLIENT_ID") == "") {
+    stop("Please set EXIST_CLIENT_ID environment variable.", call. = FALSE)
+  }
+
+  if (Sys.getenv("EXIST_CLIENT_SECRET") == "") {
+    stop("Please set EXIST_CLIENT_SECRET environment variable.", call. = FALSE)
+  }
+
   # Remove previously saved auth
   if (file.exists(".httr-oauth")) {
     file.remove(".httr-oauth")
