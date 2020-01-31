@@ -42,6 +42,12 @@ reference:
       - exist_acquire_attribute
       - exist_release_attribute
       - exist_owned_attributes
+  - title: Updating data
+    desc: >
+      Update data
+    contents:
+      - exist_update_attribute
+      - exist_append_tag
   - title: "Internal Functions"
     desc: >
       Internal functions needed by the package.

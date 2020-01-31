@@ -40,7 +40,7 @@ exist_auth <- function() {
   exist_token <- oauth2.0_token(
     endpoint = exist_oauth_endpoint,
     app = exist_webapp,
-    scope = "read+write",
+    scope = "read+write+append",
     query_authorize_extra = list(response_type = "code"),
     cache = TRUE
   )
