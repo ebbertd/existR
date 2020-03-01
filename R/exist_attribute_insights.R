@@ -2,9 +2,8 @@
 #'
 #' Returns information on all insights for a specific attribute.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information of all insights for a specific attribute.
+#' @param token The token environment.
 #' @param attribute The attribute for which to get all insights. Defaults to mood.
 #' @param limit Number of values to return per page, starting with today. Optional, max is 100.
 #' @param page Page index. Optional, default is 1.
@@ -13,15 +12,16 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_attribute_insights()
+#' etoken <- exist_auth()
+#' exist_attribute_insights(etoken)
 #' }
-exist_attribute_insights <- function(attribute = "mood", limit = NULL, page = 1, date_min = NULL, date_max = NULL) {
+exist_attribute_insights <- function(token = NULL, attribute = "mood", limit = NULL, page = 1, date_min = NULL, date_max = NULL) {
   # Set path for query
   path <- paste0("api/1/users/$self/insights/attribute/", attribute, "/")
   query <- list(limit = limit, page = page, date_min = date_min, date_max = date_max)
 
   # Call wrapper function for query
-  exist_package_query(path = path, query = query)
+  exist_package_query(token = token, path = path, query = query)
 }
 
 #' Print result of exist_attribute_insights()

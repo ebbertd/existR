@@ -2,20 +2,20 @@
 #'
 #' Returns information on the owned attributes.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the owned attributes.
+#' @param token The token environment.
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_owned_attributes()
+#' etoken <- exist_auth()
+#' exist_owned_attributes(etoken)
 #' }
-exist_owned_attributes <- function() {
+exist_owned_attributes <- function(token = NULL) {
   # Set path for query
   path <- "api/1/attributes/owned/"
 
   # Call wrapper function for query
-  exist_package_query(path = path)
+  exist_package_query(token = token, path = path)
 }
 
 #' Print result of exist_owned_attributes()

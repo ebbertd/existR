@@ -5,6 +5,7 @@
 \title{Query Exist.io for a specific attribute}
 \usage{
 exist_specific_attribute(
+  token = NULL,
   attribute = "",
   limit = NULL,
   page = 1,
@@ -12,6 +13,8 @@ exist_specific_attribute(
 )
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{attribute}{The name of the attribute to get.}
 
 \item{limit}{Number of values to return per page. Optional, max is 100.}
@@ -26,11 +29,9 @@ A list containing the information about the current day of the user.
 \description{
 Returns information on a specific attribute.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_specific_attribute()
+etoken <- exist_auth()
+exist_specific_attribute(etoken)
 }
 }

@@ -1,6 +1,6 @@
 Package: existR
 Title: Read and write data to Exist.io
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Daniel",
            family = "Ebbert",

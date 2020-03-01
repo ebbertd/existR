@@ -4,9 +4,11 @@
 \alias{exist_acquire_attribute}
 \title{Acquire ownership for an attribute on Exist.io}
 \usage{
-exist_acquire_attribute(attribute = NULL, active = "true")
+exist_acquire_attribute(token = NULL, attribute = NULL, active = "true")
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{attribute}{The attribute for which to acquire ownership.}
 
 \item{active}{true or false to set this attribute to active or inactive. Defaults to true.}
@@ -17,11 +19,9 @@ A status indicating if the request was successful.
 \description{
 Acquire ownership for an attribute on Exist.io
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_acquire_attribute()
+etoken <- exist_auth()
+exist_acquire_attribute(etoken)
 }
 }

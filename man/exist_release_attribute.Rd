@@ -4,9 +4,11 @@
 \alias{exist_release_attribute}
 \title{Release ownership for an attribute on Exist.io}
 \usage{
-exist_release_attribute(attribute = NULL)
+exist_release_attribute(token = NULL, attribute = NULL)
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{attribute}{The attribute for which to release ownership.}
 }
 \value{
@@ -15,11 +17,9 @@ A status indicating if the request was successful.
 \description{
 Release ownership for an attribute on Exist.io
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_release_attribute()
+etoken <- exist_auth()
+exist_release_attribute(etoken)
 }
 }

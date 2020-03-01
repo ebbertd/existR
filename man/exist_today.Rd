@@ -4,7 +4,10 @@
 \alias{exist_today}
 \title{Query Exist.io current users day}
 \usage{
-exist_today()
+exist_today(token = NULL)
+}
+\arguments{
+\item{token}{The token environment.}
 }
 \value{
 A list containing the information about the current day of the user.
@@ -12,11 +15,9 @@ A list containing the information about the current day of the user.
 \description{
 Returns information on the current day of the logged in user.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_today()
+etoken <- exist_auth()
+exist_today(etoken)
 }
 }

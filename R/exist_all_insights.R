@@ -2,9 +2,8 @@
 #'
 #' Returns information on all insights.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information of all insights.
+#' @param token The token environment.
 #' @param limit Number of values to return per page, starting with today. Optional, max is 100.
 #' @param page Page index. Optional, default is 1.
 #' @param date_min Oldest date (inclusive) of results to be returned, in format YYYY-mm-dd. Optional.
@@ -12,15 +11,16 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_all_insights()
+#' etoken <- exist_auth()
+#' exist_all_insights(etoken)
 #' }
-exist_all_insights <- function(limit = NULL, page = 1, date_min = NULL, date_max = NULL) {
+exist_all_insights <- function(token = NULL, limit = NULL, page = 1, date_min = NULL, date_max = NULL) {
   # Set path for query
   path <- "api/1/users/$self/insights/"
   query <- list(limit = limit, page = page, date_min = date_min, date_max = date_max)
 
   # Call wrapper function for query
-  exist_package_query(path = path, query = query)
+  exist_package_query(token = token, path = path, query = query)
 }
 
 #' Print result of exist_all_insights()

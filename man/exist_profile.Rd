@@ -4,7 +4,10 @@
 \alias{exist_profile}
 \title{Query Exist.io current user}
 \usage{
-exist_profile()
+exist_profile(token = NULL)
+}
+\arguments{
+\item{token}{The token environment.}
 }
 \value{
 A list containing the information about the current user.
@@ -12,11 +15,9 @@ A list containing the information about the current user.
 \description{
 Returns information on the logged in user.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_profile()
+etoken <- exist_auth()
+exist_profile(etoken)
 }
 }

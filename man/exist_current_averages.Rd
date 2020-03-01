@@ -4,7 +4,10 @@
 \alias{exist_current_averages}
 \title{Query Exist.io for the most recent averages.}
 \usage{
-exist_current_averages()
+exist_current_averages(token = NULL)
+}
+\arguments{
+\item{token}{The token environment.}
 }
 \value{
 A list containing the most recent averages.
@@ -12,11 +15,9 @@ A list containing the most recent averages.
 \description{
 Returns the most recent average values for each attribute.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_current_averages()
+etoken <- exist_auth()
+exist_current_averages(etoken)
 }
 }

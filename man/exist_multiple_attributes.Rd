@@ -5,6 +5,7 @@
 \title{Query Exist.io for multiple attributes}
 \usage{
 exist_multiple_attributes(
+  token = NULL,
   limit = NULL,
   attributes = NULL,
   groups = NULL,
@@ -12,6 +13,8 @@ exist_multiple_attributes(
 )
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{limit}{Number of values to return, starting with the newest date. Optional, max is 31.}
 
 \item{attributes}{Optional comma-separated list of attributes, e.g. mood,mood_note.}
@@ -26,11 +29,9 @@ A list containing the information about the current day of the user.
 \description{
 Returns information on multiple attributes.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
+etoken <- exist_auth()
 exist_multiple_attributes()
 }
 }

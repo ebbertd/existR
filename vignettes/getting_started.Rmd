@@ -36,7 +36,7 @@ After you set these environment variables you can get started using the package.
 library(existR)
 
 # Authenticate to Exist.io
-exist_auth()
+etoken <- exist_auth()
 ```
 
 Calling the exist_auth function will open a browser window. You will have to sign into Exist.io and then grant access to the R package. Afterwards you will be redirect. However, the redirect URL needs to be changed. Exist.io requires a https redirect URL, but the httr package can only provide a local webserver with http. Therefore, to finish the authentication process you have to change the URL in your browser. Just remove the s in https and the URL will work. This will lead to a file being saved in your working directory that contains your OAuth token.
@@ -47,7 +47,7 @@ Before an attribute can be updated you have to acquire ownership of this attribu
 
 ```{r ownership}
 # Acquire ownership of the 'money_spent' attribute.
-exist_acquire_attribute("money_spent")
+exist_acquire_attribute(etoken, "money_spent")
 ```
 
 # Update an attribute
@@ -56,5 +56,5 @@ Once ownership of an attribute has been acquired the attribute can updated. In t
 
 ```{r update}
 # Update the attribute
-exist_update_attribute("money_spent", "2020-01-30", 16)
+exist_update_attribute(etoken, "money_spent", "2020-01-30", 16)
 ```

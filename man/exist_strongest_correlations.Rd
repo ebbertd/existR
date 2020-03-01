@@ -4,7 +4,10 @@
 \alias{exist_strongest_correlations}
 \title{Query Exist.io for the strongest correlations across all attributes.}
 \usage{
-exist_strongest_correlations()
+exist_strongest_correlations(token = NULL)
+}
+\arguments{
+\item{token}{The token environment.}
 }
 \value{
 A list containing the strongest correlations across all attributes.
@@ -12,11 +15,9 @@ A list containing the strongest correlations across all attributes.
 \description{
 Returns a list of the user’s strongest correlations across all attributes.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_strongest_correlations()
+etoken <- exist_auth()
+exist_strongest_correlations(etoken)
 }
 }

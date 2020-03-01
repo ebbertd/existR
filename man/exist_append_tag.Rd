@@ -4,9 +4,11 @@
 \alias{exist_append_tag}
 \title{Append a tag on Exist.io}
 \usage{
-exist_append_tag(value = NULL, date = NULL)
+exist_append_tag(token = NULL, value = NULL, date = NULL)
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{value}{The tag to append.}
 
 \item{date}{Optional string of format YYYY-mm-dd. If omitted, current day is assumed.}
@@ -17,11 +19,9 @@ A status indicating if the request was successful.
 \description{
 Append a tag on Exist.io
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_append_tag()
+etoken <- exist_auth()
+exist_append_tag(etoken)
 }
 }

@@ -4,9 +4,15 @@
 \alias{exist_package_query}
 \title{Query Exist.io API}
 \usage{
-exist_package_query(path = "api/1/users/$self/profile/", query = NULL)
+exist_package_query(
+  token = NULL,
+  path = "api/1/users/$self/profile/",
+  query = NULL
+)
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{path}{The API path to query.}
 
 \item{query}{A list of query parameters.}
@@ -17,11 +23,9 @@ The response of the API call
 \description{
 Returns information on the logged in user.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_package_query(path = "api/1/users/$self/profile/")
+etoken <- exist_auth()
+exist_package_query(token = etoken, path = "api/1/users/$self/profile/")
 }
 }

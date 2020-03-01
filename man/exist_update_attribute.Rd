@@ -4,9 +4,16 @@
 \alias{exist_update_attribute}
 \title{Update an attribute on Exist.io}
 \usage{
-exist_update_attribute(attribute = NULL, date = NULL, value = NULL)
+exist_update_attribute(
+  token = NULL,
+  attribute = NULL,
+  date = NULL,
+  value = NULL
+)
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{attribute}{The attribute to update.}
 
 \item{date}{String of format YYYY-mm-dd.}
@@ -19,11 +26,9 @@ A status indicating if the request was successful.
 \description{
 Update an attribute on Exist.io
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_update_attribute()
+etoken <- exist_auth()
+exist_update_attribute(token = etoken)
 }
 }

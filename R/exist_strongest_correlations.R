@@ -2,20 +2,20 @@
 #'
 #' Returns a list of the user’s strongest correlations across all attributes.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the strongest correlations across all attributes.
+#' @param token The token environment.
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_strongest_correlations()
+#' etoken <- exist_auth()
+#' exist_strongest_correlations(etoken)
 #' }
-exist_strongest_correlations <- function() {
+exist_strongest_correlations <- function(token = NULL) {
   # Set path for query
   path <- "api/1/users/$self/correlations/strongest/"
 
   # Call wrapper function for query
-  exist_package_query(path = path)
+  exist_package_query(token = token, path = path)
 }
 
 #' Print result of exist_strongest_correlations()

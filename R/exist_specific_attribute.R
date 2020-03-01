@@ -2,9 +2,8 @@
 #'
 #' Returns information on a specific attribute.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information about the current day of the user.
+#' @param token The token environment.
 #' @param attribute The name of the attribute to get.
 #' @param limit Number of values to return per page. Optional, max is 100.
 #' @param page Page index. Optional, default is 1.
@@ -12,9 +11,10 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_specific_attribute()
+#' etoken <- exist_auth()
+#' exist_specific_attribute(etoken)
 #' }
-exist_specific_attribute <- function(attribute = "", limit = NULL, page = 1, date_max = NULL) {
+exist_specific_attribute <- function(token = NULL, attribute = "", limit = NULL, page = 1, date_max = NULL) {
   if (attribute == "") {
     stop("Please specify an attribute.", call. = FALSE)
   }
@@ -24,7 +24,7 @@ exist_specific_attribute <- function(attribute = "", limit = NULL, page = 1, dat
   query <- list(limit = limit, page = page, date_max = date_max)
 
   # Call wrapper function for query
-  exist_package_query(path = path, query = query)
+  exist_package_query(token = token, path = path, query = query)
 }
 
 #' Print result of exist_specific_attribute()

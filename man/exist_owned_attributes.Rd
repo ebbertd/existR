@@ -4,7 +4,10 @@
 \alias{exist_owned_attributes}
 \title{Query Exist.io for the owned attributes}
 \usage{
-exist_owned_attributes()
+exist_owned_attributes(token = NULL)
+}
+\arguments{
+\item{token}{The token environment.}
 }
 \value{
 A list containing the owned attributes.
@@ -12,11 +15,9 @@ A list containing the owned attributes.
 \description{
 Returns information on the owned attributes.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_owned_attributes()
+etoken <- exist_auth()
+exist_owned_attributes(etoken)
 }
 }

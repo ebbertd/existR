@@ -2,9 +2,8 @@
 #'
 #' Append a tag on Exist.io
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A status indicating if the request was successful.
+#' @param token The token environment.
 #' @param value The tag to append.
 #' @param date Optional string of format YYYY-mm-dd. If omitted, current day is assumed.
 #' @importFrom httr modify_url
@@ -15,29 +14,21 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_append_tag()
+#' etoken <- exist_auth()
+#' exist_append_tag(etoken)
 #' }
-exist_append_tag <- function(value = NULL, date = NULL) {
-  # Check if .httr-oauth file exists
-  if (!file.exists(".httr-oauth")) {
-    stop("You did not authenticate to Exist.io yet. Please use exist_auth() before using this function.", call. = FALSE)
-  }
-
+exist_append_tag <- function(token = NULL, value = NULL, date = NULL) {
   # Construct url
   base_url <- "https://exist.io/"
   path <- "api/1/attributes/custom/append/"
   url <- modify_url(base_url, path = path)
-
-  # Get the token
-  exist_token <- readRDS(".httr-oauth")
-  exist_token <- exist_token[[1]]
 
   # POST the request
   POST(url,
     # body = list(name = attribute, active = active),
     body = paste0("[", toJSON(list(value = value, date = date), auto_unbox = TRUE), "]"),
     encode = "json",
-    config = (token <- exist_token),
+    config = (token <- token),
     content_type_json(),
     accept_json(),
     exist_package_useragent()

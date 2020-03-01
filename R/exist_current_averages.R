@@ -2,20 +2,20 @@
 #'
 #' Returns the most recent average values for each attribute.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the most recent averages.
+#' @param token The token environment.
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_current_averages()
+#' etoken <- exist_auth()
+#' exist_current_averages(etoken)
 #' }
-exist_current_averages <- function() {
+exist_current_averages <- function(token = NULL) {
   # Set path for query
   path <- "api/1/users/$self/averages/"
 
   # Call wrapper function for query
-  exist_package_query(path = path)
+  exist_package_query(token = token, path = path)
 }
 
 #' Print result of exist_current_averages()

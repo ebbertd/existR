@@ -2,9 +2,8 @@
 #'
 #' Update an attribute on Exist.io
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A status indicating if the request was successful.
+#' @param token The token environment.
 #' @param attribute The attribute to update.
 #' @param date String of format YYYY-mm-dd.
 #' @param value A valid value for this attribute type: string, integer, or float.
@@ -16,29 +15,21 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_update_attribute()
+#' etoken <- exist_auth()
+#' exist_update_attribute(token = etoken)
 #' }
-exist_update_attribute <- function(attribute = NULL, date = NULL, value = NULL) {
-  # Check if .httr-oauth file exists
-  if (!file.exists(".httr-oauth")) {
-    stop("You did not authenticate to Exist.io yet. Please use exist_auth() before using this function.", call. = FALSE)
-  }
-
+exist_update_attribute <- function(token = NULL, attribute = NULL, date = NULL, value = NULL) {
   # Construct url
   base_url <- "https://exist.io/"
   path <- "api/1/attributes/update/"
   url <- modify_url(base_url, path = path)
-
-  # Get the token
-  exist_token <- readRDS(".httr-oauth")
-  exist_token <- exist_token[[1]]
 
   # POST the request
   POST(url,
     # body = list(name = attribute, active = active),
     body = paste0("[", toJSON(list(name = attribute, date = date, value = value), auto_unbox = TRUE), "]"),
     encode = "json",
-    config = (token <- exist_token),
+    config = (token <- token),
     content_type_json(),
     accept_json(),
     exist_package_useragent()

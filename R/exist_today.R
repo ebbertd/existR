@@ -2,20 +2,20 @@
 #'
 #' Returns information on the current day of the logged in user.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information about the current day of the user.
+#' @param token The token environment.
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_today()
+#' etoken <- exist_auth()
+#' exist_today(etoken)
 #' }
-exist_today <- function() {
+exist_today <- function(token = NULL) {
   # Set path for query
   path <- "api/1/users/$self/today/"
 
   # Call wrapper function for query
-  exist_package_query(path = path)
+  exist_package_query(token = token, path = path)
 }
 
 #' Print result of exist_today()

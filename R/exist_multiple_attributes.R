@@ -2,9 +2,8 @@
 #'
 #' Returns information on multiple attributes.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information about the current day of the user.
+#' @param token The token environment.
 #' @param limit Number of values to return, starting with the newest date. Optional, max is 31.
 #' @param attributes Optional comma-separated list of attributes, e.g. mood,mood_note.
 #' @param groups Optional comma-separated list of groups to filter attributes by, e.g. mood,health
@@ -12,15 +11,16 @@
 #' @export
 #' @examples
 #' \dontrun{
+#' etoken <- exist_auth()
 #' exist_multiple_attributes()
 #' }
-exist_multiple_attributes <- function(limit = NULL, attributes = NULL, groups = NULL, date_max = NULL) {
+exist_multiple_attributes <- function(token = NULL, limit = NULL, attributes = NULL, groups = NULL, date_max = NULL) {
   # Set path for query
   path <- "api/1/users/$self/attributes/"
   query <- list(limit = limit, attributes = attributes, groups = groups, date_max = date_max)
 
   # Call wrapper function for query
-  exist_package_query(path = path, query = query)
+  exist_package_query(token = token, path = path, query = query)
 }
 
 #' Print result of exist_multiple_attributes()

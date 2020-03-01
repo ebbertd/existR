@@ -5,6 +5,7 @@
 \title{Query Exist.io for all correlations for a specific attribute}
 \usage{
 exist_attribute_correlations(
+  token = NULL,
   attribute = "mood",
   limit = NULL,
   page = 1,
@@ -14,6 +15,8 @@ exist_attribute_correlations(
 )
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{attribute}{The attribute for which to get all correlations. Defaults to mood.}
 
 \item{limit}{Number of values to return per page, starting with today. Optional, max is 100.}
@@ -32,11 +35,9 @@ A list containing the information of all correlations for a specific attribute.
 \description{
 Returns information on all correlations for a specific attribute.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_attribute_correlations()
+etoken <- exist_auth()
+exist_attribute_correlations(etoken)
 }
 }

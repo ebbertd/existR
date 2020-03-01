@@ -2,20 +2,20 @@
 #'
 #' Returns information on the logged in user.
 #'
-#' This function expects the user to have the oauth token cached.
-#'
 #' @return A list containing the information about the current user.
+#' @param token The token environment.
 #' @export
 #' @examples
 #' \dontrun{
-#' exist_profile()
+#' etoken <- exist_auth()
+#' exist_profile(etoken)
 #' }
-exist_profile <- function() {
+exist_profile <- function(token = NULL) {
   # Set path for query
   path <- "api/1/users/$self/profile/"
 
   # Call wrapper function for query
-  exist_package_query(path = path)
+  exist_package_query(token = token, path = path)
 }
 
 #' Print result of exist_profile()

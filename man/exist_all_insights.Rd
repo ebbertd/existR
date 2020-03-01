@@ -4,9 +4,17 @@
 \alias{exist_all_insights}
 \title{Query Exist.io for all insights}
 \usage{
-exist_all_insights(limit = NULL, page = 1, date_min = NULL, date_max = NULL)
+exist_all_insights(
+  token = NULL,
+  limit = NULL,
+  page = 1,
+  date_min = NULL,
+  date_max = NULL
+)
 }
 \arguments{
+\item{token}{The token environment.}
+
 \item{limit}{Number of values to return per page, starting with today. Optional, max is 100.}
 
 \item{page}{Page index. Optional, default is 1.}
@@ -21,11 +29,9 @@ A list containing the information of all insights.
 \description{
 Returns information on all insights.
 }
-\details{
-This function expects the user to have the oauth token cached.
-}
 \examples{
 \dontrun{
-exist_all_insights()
+etoken <- exist_auth()
+exist_all_insights(etoken)
 }
 }
